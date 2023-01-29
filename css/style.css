@@ -18,9 +18,18 @@ html {
 body {
   background-color: var(--background-dark);
   color: #fff;
-  /* text-align: center; */
   margin: 0;
-  width: 100vw;
+}
+
+a {
+  color: #fff;
+  padding-bottom: .5rem;
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
 }
 
 #content-wrapper {
@@ -38,14 +47,31 @@ body {
 header {
   border-bottom: 1px solid var(--off-white);
   display: grid;
-  padding-bottom: 2rem;
+  grid-template-columns: 1fr repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  padding-bottom: 1.5rem;
+  width: 100%;
 }
 
+header div {
+  grid-column: 1/3;
+  grid-row: 2/-1;
+  padding-right: .5rem;
+  z-index: 1;
+}
+
+header img {
+  grid-column: 2/-1;
+  grid-row: 1/3;
+}
 
 /***** Nav *****/
 nav {
   display: flex;
   justify-content: space-between;
+  grid-column: 1/-1;
+  grid-row: 1/1;
+  z-index: 1;
 }
 
 nav ul {
@@ -61,9 +87,91 @@ nav ul li {
 
 main {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/********** Utility Classes **********/
+
+.lg-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.xl-heading {
+  font-size: 72px;
 }
 
 .expCard {
-  padding: 0 .5rem;
+  padding: 0 2rem;
+}
+
+.underline {
+  border-bottom: 1px solid var(--cta);
+}
+
+/********* Aside **********/
+
+aside {
+  width: 100%;
+}
+
+aside ul {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 2rem;
+  padding: 0;
+}
+
+aside ul li {
+  list-style: none;
+}
+
+/********** Footer **********/
+
+footer {
+  background-color: var(--background-light);
+  display: grid;
+  grid-template-columns: auto 50%;
+  grid-template-rows: auto;
+  width: 100%;
+}
+
+footer div {
+  grid-column: 1/1;
+  grid-row: 1/1;
+  padding: 2rem;
+}
+
+footer form {
+  align: center;
+  display: flex;
+  flex-flow: column;
+  grid-column: 2/-1;
+  grid-row: 1/1;
+  justify-content: space-around;
+}
+
+footer nav {
+  border-top: 1px solid var(--off-white);
+  grid-column: 1/-1;
+  grid-row: 2/-1;
+}
+
+footer nav h1 {
+  padding-left: .5rem;
+}
+
+footer input[type="text"]{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--off-white);
+  color: #fff;
+  width: 75%;
+}
+
+footer input[type="text"]:focus,
+footer input[type="text"]:hover {
+  color: var(--cta);
+  border-bottom: 1px solid var(--cta);
 }
