@@ -22,9 +22,13 @@ body {
 }
 
 a {
-  color: #fff;
+  color: var(--off-white);
   padding-bottom: .5rem;
   text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px solid var(--cta);
 }
 
 img {
@@ -33,9 +37,10 @@ img {
 }
 
 #content-wrapper {
+  align-content: space-between;
   display: flex;
   flex-flow: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin: auto;
   width: 95%;
@@ -67,11 +72,18 @@ header img {
 
 /***** Nav *****/
 nav {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   grid-column: 1/-1;
   grid-row: 1/1;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  justify-items: end;
+  /* width: 100%; */
   z-index: 1;
+}
+
+nav h1 {
+  justify-self: flex-start;
 }
 
 nav ul {
@@ -91,25 +103,6 @@ main {
   width: 100%;
 }
 
-/********** Utility Classes **********/
-
-.lg-heading {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.xl-heading {
-  font-size: 72px;
-}
-
-.expCard {
-  padding: 0 2rem;
-}
-
-.underline {
-  border-bottom: 1px solid var(--cta);
-}
-
 /********* Aside **********/
 
 aside {
@@ -118,8 +111,9 @@ aside {
 
 aside ul {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(auto-fit, 350px);
   gap: 2rem;
+  justify-content: space-around;
   padding: 0;
 }
 
@@ -127,12 +121,23 @@ aside ul li {
   list-style: none;
 }
 
+aside ul li div {
+  display: flex;
+  justify-content: flex-start;
+  padding: .5rem 0;
+}
+
+aside ul h3 {
+  margin: 0;
+  padding: 0 .5rem 0 0;
+}
+
 /********** Footer **********/
 
 footer {
   background-color: var(--background-light);
   display: grid;
-  grid-template-columns: auto 50%;
+  grid-template-columns: repeat(auto-fit, 50%);
   grid-template-rows: auto;
   width: 100%;
 }
@@ -144,7 +149,6 @@ footer div {
 }
 
 footer form {
-  align: center;
   display: flex;
   flex-flow: column;
   grid-column: 2/-1;
@@ -162,7 +166,7 @@ footer nav h1 {
   padding-left: .5rem;
 }
 
-footer input[type="text"]{
+footer input{
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--off-white);
@@ -170,8 +174,34 @@ footer input[type="text"]{
   width: 75%;
 }
 
-footer input[type="text"]:focus,
-footer input[type="text"]:hover {
+footer input:focus,
+footer input:hover {
   color: var(--cta);
+  border-bottom: 1px solid var(--cta);
+}
+
+footer input[type="submit"] {
+  border-radius: 5px;
+  background-color: var(--cta);
+  color: var(--background-light);
+  padding: 1rem;
+}
+
+/********** Utility Classes **********/
+
+.lg-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.xl-heading {
+  font-size: 72px;
+}
+
+.expCard {
+  padding: 0 2rem;
+}
+
+.underline {
   border-bottom: 1px solid var(--cta);
 }
